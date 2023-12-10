@@ -35,7 +35,6 @@
     </div>
 </div>
 
-
 <section class="border border-5 border-white" style="padding: 7em 0 7em 0;" >
     <div class="content d-flex flex-column align-items-center justify-content-between" style="height: 6em;">
         <h4>Get the best foods and deals</h4>

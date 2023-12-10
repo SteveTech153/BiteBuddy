@@ -60,8 +60,12 @@
     @foreach($products as $item)
         <div class="item">
             <div class="item-details">
-                <i class="fa-solid fa-leaf" style="color: #29ff2c;"></i>
-                <h6 id="item-display-name">{{$item->name}}</h6>
+                @if($item->is_vegetarian)
+                    <i class="bi bi-stop-btn" style="color: #29ff2c;"></i>
+                @else
+                    <i class="bi bi-caret-up-square" style="color: #ff0000;"></i>
+                @endif
+                <h6 id="item-display-name" class="item-display-name">{{$item->name}}</h6>
                 <h6>$<span id="item-price">{{$item->price}}</span></h6>
                 <input type="hidden" name="itemId" value="{{$item->id}}">
                 <p class="item-description">{{$item->description}}</p>

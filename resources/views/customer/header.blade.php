@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar navbar-expand-sm bg-body-tertiary w-100" style="background-color: white !important; position: fixed; z-index: 1;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/customer">BiteBuddy</a>
+            <a class="navbar-brand" href="/">BiteBuddy</a>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <button id="open-sidebar" class="nav-link" aria-current="page">Select City</button>
@@ -16,7 +16,7 @@
                         <a class="nav-link" href="/checkout"><i class="bi bi-cart3"></i> Cart</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/track-order"><i class="bi bi-map"></i> Track Order</a>
+                        <a class="nav-link" href="/track-order" id="track-order-nav"><i class="bi bi-map"></i> Track Order</a>
                     </li>
                     @if (Auth::check())
                         <li class="nav-item">
@@ -157,4 +157,7 @@
             </div>
         </div>
     </div>
+</div>
+<div id="loadingOverlay" class="overlay">
+    <div class="spinner"></div>
 </div>

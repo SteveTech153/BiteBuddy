@@ -38,9 +38,6 @@
 </div>
 <section class="checkout-section col-lg-4 col-md-6">
     <!-- Add a loading spinner element -->
-    <div id="loadingOverlay" class="overlay">
-        <div class="spinner"></div>
-    </div>
 
     <div id="checkout">
         <div id="restaurant-info">

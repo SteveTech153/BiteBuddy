@@ -1,4 +1,19 @@
-
+let isUserLoggedIn = 'no';
+function userLoggedIn(){
+    $.ajax({
+        method: 'GET',
+        url: 'current-user',
+        dataType: 'json',
+        success: function (data) {
+            console.log(data.message);
+            isUserLoggedIn = data.message;
+        },
+        error: function (err) {
+            console.log(err);
+            return false;
+        }
+    });
+}
     function showRegisterForm() {
         $('.loginBox').fadeOut('fast', function () {
             $('.registerBox').fadeIn('fast');
@@ -62,6 +77,15 @@
         }, 1000);
     }
 $(document).ready(function() {
+    function showLoadingOverlay() {
+        document.getElementById('loadingOverlay').style.display = 'block';
+    }
+
+// Function to hide loading overlay
+    function hideLoadingOverlay() {
+        document.getElementById('loadingOverlay').style.display = 'none';
+    }
+
     const closeBtn = $('#close1-btn');
     closeBtn.click(function () {
         $('#loginModal').modal('hide');
@@ -138,6 +162,20 @@ $(document).ready(function() {
                 equalTo: "Passwords do not match"
             }
         }
+    });
+
+    $('#track-order-nav').click(function (e) {
+        e.preventDefault();
+        userLoggedIn();
+        showLoadingOverlay();
+        setTimeout(function() {
+        hideLoadingOverlay();
+        if(isUserLoggedIn === 'yes'){
+            window.location.replace("/track-order");
+        } else {
+            openLoginModal();
+        }
+        }, 2000);
     });
 });
 

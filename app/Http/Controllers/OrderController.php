@@ -98,13 +98,17 @@ class OrderController extends Controller
 
     public function ordersOfCustomer()
     {
-        // where status is not delivered and cancelled
         $orders = Order::with('customer', 'products', 'orderProducts', 'restaurant', 'deliveryPersonnel')
             ->where('customer_id', auth()->user()->id)
             ->whereNotIn('status', ['delivered', 'cancelled'])
             ->get()
             ->sortByDesc('created_at');
-
+        if($orders->isEmpty()){
+            $orders = Order::with('customer', 'products', 'orderProducts', 'restaurant', 'deliveryPersonnel')
+                ->where('customer_id', auth()->user()->id)
+                ->get()
+                ->sortByDesc('created_at');
+        }
         return response()->json(['data' => OrderResource::collection($orders)], 200);
     }
 

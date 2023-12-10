@@ -69,5 +69,17 @@ class User extends Authenticatable implements JWTSubject
     public function deliveryOrders(): HasMany
     {
         return $this->hasMany(Order::class, 'delivery_id');
-    }   
+    }
+    public function isAdmin(){
+        return $this->hasRole('admin');
+    }
+    public function isCustomer(){
+        return $this->hasRole('customer');
+    }
+    public function isDeliveryPersonnel(){
+        return $this->hasRole('delivery_partner');
+    }
+    public function isRestaurantOwner(){
+        return $this->hasRole('restaurant_owner');
+    }
 }

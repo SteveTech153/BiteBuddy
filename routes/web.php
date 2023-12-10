@@ -25,8 +25,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('customer.index');
+})->name('customer.index');
 
 Auth::routes();
 
@@ -83,9 +83,6 @@ Route::group(['middleware' => ['auth', 'role:delivery_partner']], function () {
     Route::put('/delivery-personnel/{id}/update', [DeliveryPersonnelController::class, 'updateDeliveryPersonnel'])->name('deliveryPersonnel.update');
 });
 
-Route::get('customer', function (){
-    return view('customer.index');
-})->name('customer.index');
 Route::get('customer/products', function (){
     return view('customer.product');
 })->name('customer.product');
