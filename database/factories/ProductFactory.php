@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Hotel;
+use App\Models\Restaurant;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +18,7 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
-            'hotel_id' => Hotel::factory(),
+            'restaurant_id' => Restaurant::factory(),
             'name' => $this->faker->sentence(2),
             'description' => $this->faker->paragraph,
             'price' => $this->faker->randomFloat(2, 5, 50),

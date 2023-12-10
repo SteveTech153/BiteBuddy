@@ -21,14 +21,18 @@ class Order extends Model
         return $this->belongsTo(User::class, 'delivery_id');
     }
 
-    public function hotel(): BelongsTo
+    public function restaurant(): BelongsTo
     {
-        return $this->belongsTo(Hotel::class);
+        return $this->belongsTo(Restaurant::class);
     }
 
     public function products(): BelongsToMany
     {
         return $this->belongsToMany(Product::class)->withPivot('quantity');
+    }
+    public function orderProducts()
+    {
+        return $this->hasMany(Order_Product::class);
     }
 
     public function calculateTotalPrice()

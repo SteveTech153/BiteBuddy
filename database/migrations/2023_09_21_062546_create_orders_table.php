@@ -15,14 +15,15 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('delivery_id')->nullable();
-            $table->unsignedBigInteger('hotel_id');
+            $table->unsignedBigInteger('restaurant_id');
             $table->decimal('total_amount', 10, 2);
             $table->enum('status', ['pending', 'confirmed', 'in_progress', 'delivered', 'canceled']);
             $table->timestamps();
-            $table->json('address')->nullable();
+            $table->text('address')->nullable();
+            $table->unsignedBigInteger('city_id')->nullable();
             $table->foreign('customer_id')->references('id')->on('users');
             $table->foreign('delivery_id')->references('id')->on('users');
-            $table->foreign('hotel_id')->references('id')->on('hotels');
+            $table->foreign('restaurant_id')->references('id')->on('restaurants');
         });
     }
 

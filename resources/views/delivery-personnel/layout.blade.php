@@ -87,7 +87,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/users/{{Auth::user()->id}}/edit" class="nav-link">
+                        <a href="/delivery-personnel/edit" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Edit Profile

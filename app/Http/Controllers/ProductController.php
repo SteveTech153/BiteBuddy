@@ -38,9 +38,9 @@ class ProductController extends Controller
         return response()->json(null, 204);
     }
 
-    public function showForHotel($hotel_id){
-        $products = Product::with('hotel')
-            ->where('hotel_id', $hotel_id)
+    public function showForRestaurant($restaurant_id){
+        $products = Product::with('restaurant')
+            ->where('restaurant_id', $restaurant_id)
             ->get();
         return response()->json(['data' => ProductResource::collection($products)], 200);
     }

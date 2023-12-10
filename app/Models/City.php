@@ -11,8 +11,8 @@ class City extends Model
 
     protected $guarded = [];
 
-    public function hotels()
+    public function restaurants()
     {
-        return $this->hasMany(Hotel::class);
+        return $this->hasMany(Restaurant::class);
     }
 }

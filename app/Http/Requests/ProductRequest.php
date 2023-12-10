@@ -22,7 +22,7 @@ class ProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'hotel_id' => 'required|integer|exists:hotels,id',
+            'restaurant_id' => 'required|integer|exists:restaurants,id',
             'name' => 'required|string|max:255',
             'description' => 'required|string',
             'price' => 'required|numeric|between:0.01,99999.99',

@@ -17,8 +17,8 @@
                     <div class="card-header" style="background-color: #FFC107; color: white; font-size: 16px; font-weight: bold;">Pickup</div>
                     <div class="card-body" style="padding: 10px;">
                         <h5>Order placed at: {{$order->created_at}} </h5>
-                        <h5>Hotel: {{$order->hotel->name}} </h5>
-                        <p class="card-text">Hotel location: {{$order->hotel->address}} </p>
+                        <h5>Restaurant: {{$order->restaurant->name}} </h5>
+                        <p class="card-text">Restaurant location: {{$order->restaurant->address}} </p>
                         <p class="card-text">Total Amount: $ {{$order->total_amount}} </p>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                     <div class="card-header" style="background-color: #FFC107; color: white; font-size: 16px; font-weight: bold;">Destination</div>
                     <div class="card-body" style="padding: 10px;">
                         <h5 >Customer: {{$order->customer->name}} </h5>
-                        <p class="card-text">Customer location: {{$order->customer->address}} </p>
+                        <p class="card-text">Customer location: {{$order->address}} </p>
                         <button onclick="window.location.href= '/delivery-personnel/delivered/{{$order->id}}' " class="btn btn-success">Delivered</button>
                     </div>
                 </div>

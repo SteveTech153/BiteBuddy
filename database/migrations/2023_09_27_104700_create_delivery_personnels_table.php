@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('delivery_personnels', function (Blueprint $table) {
             $table->id();
             $table->string('status')->default('offline');
+            $table->string('phone_number')->unique();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

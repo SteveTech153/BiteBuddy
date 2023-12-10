@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\DeliveryPersonnel;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
 use function PHPUnit\Framework\isEmpty;
 
 class DeliveryPersonnelController extends  Controller
 {
     public function orders(){
-        $orders = Order::with('hotel', 'products', 'customer')
+        $orders = Order::with('restaurant', 'products', 'customer')
             ->where('delivery_id', auth()->user()->id)
             ->where('status', '!=', 'delivered')
             ->get();
@@ -57,7 +58,7 @@ class DeliveryPersonnelController extends  Controller
             return response()->json('offline');
         }
         else{
-            $orders = Order::with('hotel', 'products', 'customer')
+            $orders = Order::with('restaurant', 'products', 'customer')
                 ->where('delivery_id', $user_id)
                 ->where('status', '!=', 'delivered')
                 ->get();
@@ -67,5 +68,21 @@ class DeliveryPersonnelController extends  Controller
             }
             return response()->json($user->status);
         }
+    }
+    public function edit(){
+        $delivery_personnel = User::find(auth()->user()->id);
+        return view('delivery-personnel.edit', compact('delivery_personnel'));
+    }
+    public function updateDeliveryPersonnel(Request $request, $id)
+    {
+        if($id!==auth()->user()->id){
+            return redirect()->route('deliveryPersonnel.index')->with('error', 'You are not authorized to update this user');
+        }
+        $delivery_personnel = User::find($id);
+        $delivery_personnel->update([
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
+        return redirect()->route('deliveryPersonnel.index')->with('success', 'Delivery Personnel updated successfully');
     }
 }

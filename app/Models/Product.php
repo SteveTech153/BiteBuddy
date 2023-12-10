@@ -13,7 +13,7 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
-        'hotel_id',
+        'restaurant_id',
         'name', 
         'description', 
         'price',
@@ -23,9 +23,9 @@ class Product extends Model
         'category'
     ];
 
-    public function hotel(): BelongsTo
+    public function restaurant(): BelongsTo
     {
-        return $this->belongsTo(Hotel::class);
+        return $this->belongsTo(Restaurant::class);
     }
 
     public function orders(): BelongsToMany

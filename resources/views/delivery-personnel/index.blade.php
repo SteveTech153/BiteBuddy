@@ -3,6 +3,11 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <div class="content-header">
+            @if(session()->has('success'))
+                <div class="alert alert-success" style="margin-top: 20px;">
+                    {{ session()->get('success') }}
+                </div>
+            @endif
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
@@ -63,7 +68,7 @@
                             <div class="icon">
                                 <i class="ion ion-person-add"></i>
                             </div>
-                            <a href="/users/{{Auth::user()->id}}/edit" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="/delivery-personnel/edit" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                 </div>
