@@ -43,6 +43,7 @@ Route::post('delivery-personnel/mark-status', [DeliveryPersonnelController::clas
 Route::get('delivery-personnel/get-status/{user_id}', [DeliveryPersonnelController::class, 'getStatus'])->name('deliveryPersonnel.getStatus');
 
 Route::get('restaurants/{city}', [CityController::class, 'showRestaurants'])->name('cities.showRestaurants');
+Route::get('items/{city}', [CityController::class, 'showItems'])->name('cities.showItems');
 
 //getting cities list
 Route::get('/getCitiesList', [CityController::class,'getCitiesList']);

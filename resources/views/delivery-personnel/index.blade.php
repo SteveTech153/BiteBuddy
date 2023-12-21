@@ -48,7 +48,7 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner" style="padding: 40px 0 25px 40px;">
-                                <h3>Orders <span id="order-progress" style="color:#01ff70; font-size:18px;"></span></h3>
+                                <h3>Orders  <span id="order-progress" style="color:#01ff70; font-size:18px; display: block"></span></h3>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
@@ -63,7 +63,7 @@
                         <!-- small box -->
                         <div class="small-box bg-warning">
                             <div class="inner" style="padding: 40px 0 25px 40px;">
-                                <h3>Profile Details</h3>
+                            <h3>Profile <span style="display:block"> Details </span></h3>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-person-add"></i>

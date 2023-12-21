@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Resources\OrderResource;
+use App\Jobs\AssignDeliveryPersonnel;
 use App\Models\DeliveryPersonnel;
 use App\Models\Order;
 use App\Models\Order_Product;
@@ -32,22 +33,11 @@ class OrderController extends Controller
         $order->total_amount = $request->input('totalPrice');
         $order->address = $request->input('address');
         $order->restaurant_id = $request->input('restaurantId');
-
-        // Check for available delivery personnel
-        $deliveryPersonnel = DeliveryPersonnel::where('status', 'online')->first();
-
-        if ($deliveryPersonnel) {
-            $order->delivery_id = $deliveryPersonnel->id;
-            $order->status = 'confirmed';
-        } else {
-            $order->status = 'pending';
-        }
-
+        $order->status = 'pending';
         $order->save();
-
+        AssignDeliveryPersonnel::dispatch();
         // Store the order products
         $items = json_decode($request->input('items'), true);
-
         foreach ($items as $item) {
             $orderProduct = new Order_Product();
             $orderProduct->order_id = $order->id;
@@ -55,11 +45,6 @@ class OrderController extends Controller
             $orderProduct->quantity = $item['quantity'];
             $orderProduct->save();
         }
-        if ($deliveryPersonnel) {
-            $deliveryPersonnel->status = 'busy';
-            $deliveryPersonnel->save();
-        }
-
         return redirect()->route('customer.trackOrder');
     }
 
@@ -106,6 +91,7 @@ class OrderController extends Controller
         if($orders->isEmpty()){
             $orders = Order::with('customer', 'products', 'orderProducts', 'restaurant', 'deliveryPersonnel')
                 ->where('customer_id', auth()->user()->id)
+                ->where('created_at', '>=', now()->subHours(12))
                 ->get()
                 ->sortByDesc('created_at');
         }

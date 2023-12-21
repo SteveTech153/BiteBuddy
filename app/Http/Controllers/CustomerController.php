@@ -15,7 +15,12 @@ class CustomerController extends Controller
     }
     public function showRestaurant($restaurant)
     {
-        $restaurant = Restaurant::where('name', $restaurant)->first();
+        // if data inside restaurant is numeric, then use id, else use name
+        if (is_numeric($restaurant)) {
+            $restaurant = Restaurant::find($restaurant);
+        } else {
+            $restaurant = Restaurant::where('name', $restaurant)->first();
+        }
         $products = $restaurant->products;
         return view('customer.restaurant', compact('products', 'restaurant'));
     }

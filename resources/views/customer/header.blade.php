@@ -1,6 +1,7 @@
 <header>
     <nav class="navbar navbar-expand-sm bg-body-tertiary w-100" style="background-color: white !important; position: fixed; z-index: 1;">
         <div class="container-fluid">
+            <img src="{{ asset('assets/images/logo.png') }}" alt="logo" style="height: 50px; width:50px; margin-right:10px;">
             <a class="navbar-brand" href="/">BiteBuddy</a>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">

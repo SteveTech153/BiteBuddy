@@ -11,7 +11,7 @@
             <h1 style="text-align:center">Orders</h1>
             <div id="orderList">
                 <!-- Orders will be displayed here -->
-                <div style="width: 70%; margin:40px 0px 20px 165px;">
+                <div style="width: 70%; margin-left:auto; margin-right:auto">
                     @foreach($orders as $order)
                 <div class="card mb-3" style="border: 2px solid #FFC107; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15); border-radius: 5px;">
                     <div class="card-header" style="background-color: #FFC107; color: white; font-size: 16px; font-weight: bold;">Pickup</div>

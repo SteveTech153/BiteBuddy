@@ -15,4 +15,14 @@ class CityController extends Controller
         $restaurants = $city->restaurants;
         return response()->json($restaurants);
     }
+    public function showItems($city)
+    {
+        $city = City::where('name', $city)->first();
+        $restaurants = $city->restaurants;
+        $products = [];
+        foreach ($restaurants as $restaurant) {
+            $products[] = $restaurant->products;
+        }
+        return response()->json($products);
+    }
 }

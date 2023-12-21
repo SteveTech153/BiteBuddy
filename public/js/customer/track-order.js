@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    const openSidebarBtn = document.querySelector("#open-sidebar");
+    openSidebarBtn.innerText = localStorage.getItem("city");
+    openSidebarBtn.style.display = "none";
     function fetchOrderDetails() {
     $.ajax({
         url: '/get-order-details',
@@ -8,7 +11,7 @@ $(document).ready(function () {
             console.log(response);
             if(response.data.length === 0) {
                 //set a image here
-                $('#card-container').html('<img src="https://hsnbazar.com/images/empty-cart.png" alt="empty-cart" class="empty-cart">');
+                $('#card-container').html('<img style="height:30%; width:30%;" src="https://static.vecteezy.com/system/resources/previews/014/814/239/large_2x/no-order-a-flat-rounded-icon-is-up-for-premium-use-vector.jpg" alt="empty-cart" class="empty-cart">');
             }
             console.log(response.data[0]);
             $('#restaurant-name').text(response.data[0].restaurant_name);
@@ -49,4 +52,5 @@ $(document).ready(function () {
     $('#reload-status').click(function() {
         fetchOrderDetails();
     } );
+    setInterval(fetchOrderDetails, 30000);
 });

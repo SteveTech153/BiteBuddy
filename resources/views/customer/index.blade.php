@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>BiteBuddy</title>
+    <link rel="icon" href=
+            "{{asset('assets/images/logo.png')}}"
+          type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
@@ -12,6 +15,9 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js" integrity="sha512-WMEKGZ7L5LWgaPeJtw9MBM4i5w5OSBlSjTjCtSnvFJGSVD26gE5+Td12qN5pvWXhuWaWcVwF++F7aqu9cvqP0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="{{ asset('css/customer/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/customer/login-register.css') }}">
@@ -38,10 +44,27 @@
 <section class="border border-5 border-white" style="padding: 7em 0 7em 0;" >
     <div class="content d-flex flex-column align-items-center justify-content-between" style="height: 6em;">
         <h4>Get the best foods and deals</h4>
-        <form class="d-flex col-8" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search for restaurants or dishes" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+{{--        <div class="search">--}}
+{{--            <div class="search-box">--}}
+{{--                <input id="search-bar" class="form-control me-2" type="search" placeholder="Search for restaurants or dishes" aria-label="Search">--}}
+{{--                <button class="btn btn-outline-success" id="search-btn" type="submit">Search</button>--}}
+{{--            </div>--}}
+{{--            <div class="result">--}}
+{{--                <div class="result-box">--}}
+{{--                    <div class="result">--}}
+{{--                        a2b--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <button class="btn btn-outline-success" id="filler-btn" >filler</button>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+        <div class="searchInput">
+            <input type="text" placeholder="Search for dishes and restaurants...">
+            <div class="resultBox">
+                <!-- here list are inserted from javascript -->
+            </div>
+            <div class="icon"><i class="bi bi-search"></i></div>
+        </div>
     </div>
 </section>
 
