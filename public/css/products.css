@@ -1,0 +1,41 @@
+/* Add your custom styles here */
+.content {
+    padding: 20px;
+}
+
+.table-header {
+    background-color: #3c8dbc;
+    color: white;
+}
+
+#addProductBtn {
+    border-color: #3c8dbc;
+    background-color: #3c8dbc;
+    color: white;
+}
+
+#productTable {
+    border-color: #3c8dbc;
+}
+
+.modal-header {
+    background-color: #3c8dbc;
+    color: white;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-footer {
+    background-color: #3c8dbc;
+    color: white;
+}
+
+#productSubmitBtn {
+    border-color: #3c8dbc;
+    background-color: #3c8dbc;
+    color: white;
+}
+
+/* Add more custom styles as needed */
