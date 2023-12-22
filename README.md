@@ -1,3 +1,12 @@
+## customer side
+![customer-side](https://github.com/SteveTech153/BiteBuddy/assets/94610345/ff6fda30-55f9-4507-87d9-4c40d013c22d)
+
+## Other pages
+![delivery,owner,admin](https://github.com/SteveTech153/BiteBuddy/assets/94610345/3a81f88d-ec8f-4904-a33e-0e211af88edf)
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
